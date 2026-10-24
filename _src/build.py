@@ -47,6 +47,7 @@ def page(fname, title, desc, key, body):
         f'<li><a href="{href}"{cur if k == key else ""}>{label}</a></li>'
         for k, href, label in MENU)
     contact_cur = ' aria-current="page"' if key == "contact" else ""
+    extra_js = '\n<script src="assets/js/form.js"></script>' if key == "contact" else ""
     canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
     body = body.replace("{{LINKEDIN}}", LINKEDIN).replace("{{INSTAGRAM}}", INSTAGRAM) \
                .replace("{{ICON_LI}}", ICON_LI).replace("{{ICON_IG}}", ICON_IG)
@@ -90,7 +91,7 @@ def page(fname, title, desc, key, body):
 <nav aria-label="Liens secondaires"><a href="{LINKEDIN}">LinkedIn</a><a href="{INSTAGRAM}">Instagram</a><a href="presse.html">Presse</a><a href="mentions-legales.html">Mentions légales</a></nav>
 </div>
 </footer>
-<script src="assets/js/nav.js"></script>
+<script src="assets/js/nav.js"></script>{extra_js}
 </body>
 </html>
 '''

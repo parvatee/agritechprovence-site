@@ -21,16 +21,21 @@
 <p class="muted">Nous cherchons des parcelles pour la campagne 2027, en particulier là où la flavescence dorée démarre. Indiquez votre commune et votre surface.</p>
 </div>
 </div>
-<div class="form-frame">
-<!-- FORMULAIRE : remplacer ce bloc par l'iframe Google Forms
-<iframe src="https://docs.google.com/forms/d/e/VOTRE_ID/viewform?embedded=true" title="Formulaire de contact" loading="lazy">Chargement…</iframe>
--->
-<div class="stack" style="padding:32px">
-<h2 style="font-size:28px">Écrivez-nous</h2>
-<p class="muted">Dites-nous qui vous êtes, votre domaine et votre commune, et ce que vous attendez de nous.</p>
-<p><a class="btn btn--nuit" href="mailto:Julie.Demarigny@agritechprovence.com?subject=Contact%20depuis%20le%20site">Envoyer un e-mail</a></p>
-<p class="muted" style="font-size:15px">Vos informations servent uniquement à vous répondre. <a href="mentions-legales.html">Données personnelles</a></p>
-</div>
-</div>
+<form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="11bbe373-f558-4307-b0f3-de25de5aba23">
+<input type="hidden" name="subject" value="Nouveau message depuis le site Agritech Provence">
+<input type="hidden" name="from_name" value="Site Agritech Provence">
+<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<h2 style="font-size:28px;grid-column:1/-1">Écrivez-nous</h2>
+<label>Nom et prénom *<input type="text" name="nom" required autocomplete="name"></label>
+<label>E-mail *<input type="email" name="email" required autocomplete="email"></label>
+<label>Téléphone<input type="tel" name="telephone" autocomplete="tel"></label>
+<label>Vous êtes *<select name="profil" required><option value="">Choisir</option><option>Vigneron ou domaine</option><option>Cave coopérative</option><option>Journaliste</option><option>Institution ou collectivité</option><option>Partenaire ou investisseur</option><option>Autre</option></select></label>
+<label>Domaine et commune<input type="text" name="domaine_commune"></label>
+<label>Surface en vigne (ha)<input type="text" name="surface_ha" inputmode="decimal"></label>
+<label class="full">Votre message *<textarea name="message" rows="5" required></textarea></label>
+<label class="full check"><input type="checkbox" name="consentement" value="oui" required><span>J'accepte qu'Agritech Provence utilise ces informations pour me répondre. <a href="mentions-legales.html">Données personnelles</a></span></label>
+<div class="full form-actions"><button class="btn btn--nuit" type="submit">Envoyer</button><p class="form-status" role="status" aria-live="polite"></p></div>
+</form>
 </div>
 </section>

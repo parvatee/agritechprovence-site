@@ -179,3 +179,18 @@ a[href^="mailto"]{overflow-wrap:anywhere}
 .bar .b-vert{background:#5E9B3A}.bar .b-rouge{background:#C2452D}.bar .b-re{background:#9B3B6E}.bar .b-pir{background:#6A4FA0}
 .spectrum{height:14px;border-radius:999px;background:linear-gradient(90deg,#3b5bdb 0%,#2f9e44 18%,#f08c00 34%,#c92a2a 46%,#5c1a1a 58%,#2b1b2e 70%,#141414 100%)}
 .spectrum-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--gris)}
+
+/* Formulaire de contact */
+.contact-form{background:var(--blanc);border:1px solid var(--bord);border-radius:var(--rayon);padding:32px;display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.contact-form label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+.contact-form .full{grid-column:1/-1}
+.contact-form input,.contact-form select,.contact-form textarea{font:inherit;font-weight:400;font-size:17px;padding:12px 14px;border:1px solid #A9AB9C;border-radius:6px;background:#fff;color:var(--encre);min-height:48px}
+.contact-form textarea{resize:vertical}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:3px solid var(--vert);outline-offset:1px;border-color:var(--vert)}
+.contact-form .check{flex-direction:row;align-items:flex-start;gap:12px;font-weight:400;color:var(--gris)}
+.contact-form .check input{min-height:0;width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--vert)}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.form-status{font-weight:600}
+.form-status.ok{color:var(--vert-texte)}.form-status.err{color:#A3261A}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (max-width:640px){.contact-form{grid-template-columns:1fr;padding:22px}}
