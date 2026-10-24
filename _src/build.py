@@ -8,7 +8,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_src" / "pages"
 SITE_URL = "https://www.agritechprovence.com"
 LINKEDIN = "https://www.linkedin.com/in/jdemarigny/"
-INSTAGRAM = "https://www.instagram.com/agritechprovence"
+INSTAGRAM = "https://www.instagram.com/agritech_provence"
 
 PAGES = [
     # fichier, titre, description, entree de menu
