@@ -18,7 +18,7 @@ PAGES = [
      "Mildiou, oïdium, flavescence dorée, manquants : notre méthode de détection par drone multispectral, de la carte au terrain.", "solution"),
     ("resultats.html", "Résultats 2026 | Agritech Provence",
      "Ce que le drone a vu dans les vignes : premiers résultats de la campagne 2026, présentés par cépage.", "resultats"),
-    ("equipe.html", "Qui sommes-nous | Agritech Provence",
+    ("equipe.html", "À propos | Agritech Provence",
      "Une jeune entreprise d'Apt, deux télépilotes, des partenaires de recherche et des vignerons engagés.", "equipe"),
     ("prix.html", "Prix et soutiens | Agritech Provence",
      "101 Femmes Entrepreneures, Be a Boss Women Tour, Bpifrance, Initiative Terres de Vaucluse, Force Femmes.", "prix"),
@@ -34,7 +34,7 @@ PAGES = [
 ]
 
 MENU = [("solution", "solution.html", "Notre solution"), ("resultats", "resultats.html", "Résultats 2026"),
-        ("equipe", "equipe.html", "Qui sommes-nous"), ("prix", "prix.html", "Prix et soutiens"),
+        ("equipe", "equipe.html", "À propos"), ("prix", "prix.html", "Prix et soutiens"),
         ("actualites", "actualites.html", "Actualités"), ("presse", "presse.html", "Presse")]
 
 ICON_LI = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'

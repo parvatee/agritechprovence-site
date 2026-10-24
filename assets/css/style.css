@@ -194,3 +194,7 @@ a[href^="mailto"]{overflow-wrap:anywhere}
 .form-status.ok{color:var(--vert-texte)}.form-status.err{color:#A3261A}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 @media (max-width:640px){.contact-form{grid-template-columns:1fr;padding:22px}}
+
+/* Logos des prix : jamais déformés ni coupés */
+.prize-logo{height:110px;width:auto;max-width:100%;object-fit:contain;align-self:flex-start}
+.prize-logo--wide{height:auto;width:100%;max-width:340px;aspect-ratio:2534/1416;border-radius:6px}
