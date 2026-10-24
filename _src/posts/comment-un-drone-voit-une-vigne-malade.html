@@ -1,0 +1,37 @@
+<!--{"title":"Comment un drone voit une vigne malade","date":"2026-10-10","category":"Technologie","summary":"Lumière invisible, red-edge, NDVI, NDRE : ce que mesure une caméra multispectrale, expliqué simplement, avec nos images de la saison 2026.","image":"assets/img/indice-ndre.jpg"}-->
+<p>Vue du ciel, une vigne paraît verte et régulière. C'est précisément le problème : quand un foyer de mildiou se voit depuis le tracteur, il est souvent déjà installé. Le drone ne voit pas mieux que l'œil. Il voit autre chose.</p>
+
+<h2>Une lumière que l'œil ne voit pas</h2>
+<p>Notre drone, un DJI Mavic 3 Multispectral, porte deux caméras. La première photographie en couleur. La seconde mesure quatre bandes de lumière :</p>
+<ul>
+<li>le vert, autour de 560 nanomètres ;</li>
+<li>le rouge, autour de 650 nanomètres ;</li>
+<li>le red-edge, autour de 730 nanomètres, à la frontière du visible ;</li>
+<li>le proche infrarouge, autour de 860 nanomètres, invisible à l'œil.</li>
+</ul>
+<p>Une feuille en bonne santé absorbe le rouge pour sa photosynthèse et renvoie fortement le proche infrarouge. Une feuille qui souffre fait l'inverse : elle renvoie plus de rouge et moins d'infrarouge. C'est ce basculement que la caméra enregistre.</p>
+
+<h2>Trois indices, trois questions</h2>
+<p>À partir de ces bandes, on calcule des indices. Chacun répond à une question différente.</p>
+<ul>
+<li><b>NDVI : combien de feuilles ?</b> Il voit surtout le dessus du feuillage. Très utile au printemps, quand la vigne pousse, il sature vite en été.</li>
+<li><b>GNDVI : quelle couleur de vert ?</b> Il lit la chlorophylle en surface, un peu plus finement.</li>
+<li><b>NDRE : les feuilles vont-elles bien ?</b> Grâce au red-edge, il descend jusqu'au cœur du feuillage dense de l'été. C'est notre indice clé pour repérer un foyer.</li>
+</ul>
+<figure>
+<img src="assets/img/indice-ndre.jpg" alt="Une parcelle de Grenache noir vue par l'indice NDRE" loading="lazy" style="max-width:420px">
+<figcaption>Grenache noir, 24 août 2026. Vue par le NDVI, la parcelle paraît homogène ; vue par le NDRE, l'écart entre zones est quatre fois plus grand.</figcaption>
+</figure>
+
+<h2>De la mesure à la carte</h2>
+<p>Un vol ne suffit pas. Nous survolons chaque parcelle tous les mois, à la même heure et à la même hauteur, pour que deux vols soient superposables au centimètre. Une intelligence artificielle compare chaque portion de rang au reste de la parcelle et aux vols précédents, puis désigne une vingtaine de secteurs à aller voir, classés par priorité, avec leurs coordonnées GPS.</p>
+<p>Sur une parcelle de Marsanne en juillet 2026, rien ne ressortait à l'œil sur la photo. Le NDRE isolait pourtant deux zones où le feuillage renvoyait 13 % de lumière en moins que la moyenne. Le vigneron y a constaté deux foyers de mildiou. Au vol suivant, l'écart atteignait −22 % et −28 %.</p>
+<figure>
+<img src="assets/img/mildiou-foyers.jpg" alt="Zones désignées par le drone et foyers de mildiou constatés au sol" loading="lazy">
+<figcaption>Marsanne, 2026. En rouge, les zones désignées par le drone ; cercles, les foyers confirmés au sol.</figcaption>
+</figure>
+
+<h2>Ce que le drone ne voit pas</h2>
+<p>Le drone ne pose pas de diagnostic. Un écart de lumière peut venir d'une maladie, d'un stress hydrique, d'une carence ou d'un sol différent. C'est pour cela que chaque alerte est vérifiée au sol, et que chaque vérification sert à entraîner le modèle. Un cep isolé, en début d'expression, reste aussi trop discret vu d'en haut.</p>
+<blockquote>Le drone indique où regarder. Le vigneron confirme. Le modèle apprend.</blockquote>
+<p>Pour aller plus loin, découvrez <a href="solution.html">notre méthode</a> et <a href="resultats.html">nos résultats 2026</a>.</p>

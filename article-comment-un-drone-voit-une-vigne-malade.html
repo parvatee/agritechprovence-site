@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comment un drone voit une vigne malade | Agritech Provence</title>
+<meta name="description" content="Lumière invisible, red-edge, NDVI, NDRE : ce que mesure une caméra multispectrale, expliqué simplement, avec nos images de la saison 2026.">
+<link rel="canonical" href="https://www.agritechprovence.com/article-comment-un-drone-voit-une-vigne-malade.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Comment un drone voit une vigne malade | Agritech Provence">
+<meta property="og:description" content="Lumière invisible, red-edge, NDVI, NDRE : ce que mesure une caméra multispectrale, expliqué simplement, avec nos images de la saison 2026.">
+<meta property="og:image" content="https://www.agritechprovence.com/assets/img/mildiou-foyers.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="site-header">
+<div class="wrap nav">
+<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="Logo Agritech Provence" width="68" height="68"><span><b>AGRITECH PROVENCE</b><small>Drone · multispectral · IA</small></span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul class="menu" id="menu">
+<li><a href="solution.html">Notre solution</a></li>
+<li><a href="resultats.html">Résultats 2026</a></li>
+<li><a href="equipe.html">Qui sommes-nous</a></li>
+<li><a href="prix.html">Prix et soutiens</a></li>
+<li><a href="actualites.html" aria-current="page">Actualités</a></li>
+<li><a href="presse.html">Presse</a></li>
+<li><a class="btn btn--nuit" href="contact.html">Contact</a></li>
+</ul>
+</div>
+</header>
+<main id="contenu">
+<article>
+<section class="section--nuit"><div class="wrap page-hero stack narrow" style="margin-left:auto;margin-right:auto">
+<p class="eyebrow"><a href="actualites.html" style="color:inherit">Actualités</a> · Technologie · 10 octobre 2026</p>
+<h1 style="font-size:clamp(34px,4.6vw,52px)">Comment un drone voit une vigne malade</h1>
+<p class="lead muted">Lumière invisible, red-edge, NDVI, NDRE : ce que mesure une caméra multispectrale, expliqué simplement, avec nos images de la saison 2026.</p>
+</div></section>
+<section class="section"><div class="wrap narrow prose">
+<p>Vue du ciel, une vigne paraît verte et régulière. C'est précisément le problème : quand un foyer de mildiou se voit depuis le tracteur, il est souvent déjà installé. Le drone ne voit pas mieux que l'œil. Il voit autre chose.</p>
+
+<h2>Une lumière que l'œil ne voit pas</h2>
+<p>Notre drone, un DJI Mavic 3 Multispectral, porte deux caméras. La première photographie en couleur. La seconde mesure quatre bandes de lumière :</p>
+<ul>
+<li>le vert, autour de 560 nanomètres ;</li>
+<li>le rouge, autour de 650 nanomètres ;</li>
+<li>le red-edge, autour de 730 nanomètres, à la frontière du visible ;</li>
+<li>le proche infrarouge, autour de 860 nanomètres, invisible à l'œil.</li>
+</ul>
+<p>Une feuille en bonne santé absorbe le rouge pour sa photosynthèse et renvoie fortement le proche infrarouge. Une feuille qui souffre fait l'inverse : elle renvoie plus de rouge et moins d'infrarouge. C'est ce basculement que la caméra enregistre.</p>
+
+<h2>Trois indices, trois questions</h2>
+<p>À partir de ces bandes, on calcule des indices. Chacun répond à une question différente.</p>
+<ul>
+<li><b>NDVI : combien de feuilles ?</b> Il voit surtout le dessus du feuillage. Très utile au printemps, quand la vigne pousse, il sature vite en été.</li>
+<li><b>GNDVI : quelle couleur de vert ?</b> Il lit la chlorophylle en surface, un peu plus finement.</li>
+<li><b>NDRE : les feuilles vont-elles bien ?</b> Grâce au red-edge, il descend jusqu'au cœur du feuillage dense de l'été. C'est notre indice clé pour repérer un foyer.</li>
+</ul>
+<figure>
+<img src="assets/img/indice-ndre.jpg" alt="Une parcelle de Grenache noir vue par l'indice NDRE" loading="lazy" style="max-width:420px">
+<figcaption>Grenache noir, 24 août 2026. Vue par le NDVI, la parcelle paraît homogène ; vue par le NDRE, l'écart entre zones est quatre fois plus grand.</figcaption>
+</figure>
+
+<h2>De la mesure à la carte</h2>
+<p>Un vol ne suffit pas. Nous survolons chaque parcelle tous les mois, à la même heure et à la même hauteur, pour que deux vols soient superposables au centimètre. Une intelligence artificielle compare chaque portion de rang au reste de la parcelle et aux vols précédents, puis désigne une vingtaine de secteurs à aller voir, classés par priorité, avec leurs coordonnées GPS.</p>
+<p>Sur une parcelle de Marsanne en juillet 2026, rien ne ressortait à l'œil sur la photo. Le NDRE isolait pourtant deux zones où le feuillage renvoyait 13 % de lumière en moins que la moyenne. Le vigneron y a constaté deux foyers de mildiou. Au vol suivant, l'écart atteignait −22 % et −28 %.</p>
+<figure>
+<img src="assets/img/mildiou-foyers.jpg" alt="Zones désignées par le drone et foyers de mildiou constatés au sol" loading="lazy">
+<figcaption>Marsanne, 2026. En rouge, les zones désignées par le drone ; cercles, les foyers confirmés au sol.</figcaption>
+</figure>
+
+<h2>Ce que le drone ne voit pas</h2>
+<p>Le drone ne pose pas de diagnostic. Un écart de lumière peut venir d'une maladie, d'un stress hydrique, d'une carence ou d'un sol différent. C'est pour cela que chaque alerte est vérifiée au sol, et que chaque vérification sert à entraîner le modèle. Un cep isolé, en début d'expression, reste aussi trop discret vu d'en haut.</p>
+<blockquote>Le drone indique où regarder. Le vigneron confirme. Le modèle apprend.</blockquote>
+<p>Pour aller plus loin, découvrez <a href="solution.html">notre méthode</a> et <a href="resultats.html">nos résultats 2026</a>.</p>
+<p style="margin-top:48px"><a class="btn btn--nuit" href="actualites.html">Toutes les actualités</a></p>
+</div></section>
+</article>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="brand-mini"><img src="assets/img/logo.png" alt="" width="40" height="40"><span>Agritech Provence · Drone et intelligence artificielle pour les vignes bio de Provence · Apt, Vaucluse</span></div>
+<nav aria-label="Liens secondaires"><a href="https://www.linkedin.com/in/jdemarigny/">LinkedIn</a><a href="#">Instagram</a><a href="presse.html">Presse</a><a href="mentions-legales.html">Mentions légales</a></nav>
+</div>
+</footer>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

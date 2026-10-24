@@ -26,6 +26,8 @@ PAGES = [
      "Articles, communiqués et kit presse d'Agritech Provence.", "presse"),
     ("contact.html", "Contact | Agritech Provence",
      "Vigneron, journaliste, institution ou partenaire : parlons de vos vignes.", "contact"),
+    ("actualites.html", "Actualités et veille | Agritech Provence",
+     "Actualités d'Agritech Provence et veille sur le drone agricole, l'imagerie multispectrale et la santé de la vigne.", "actualites"),
     ("mentions-legales.html", "Mentions légales | Agritech Provence",
      "Mentions légales et données personnelles du site Agritech Provence.", None),
     ("404.html", "Page introuvable | Agritech Provence", "Cette page n'existe pas.", None),
@@ -33,7 +35,7 @@ PAGES = [
 
 MENU = [("solution", "solution.html", "Notre solution"), ("resultats", "resultats.html", "Résultats 2026"),
         ("equipe", "equipe.html", "Qui sommes-nous"), ("prix", "prix.html", "Prix et soutiens"),
-        ("presse", "presse.html", "Presse")]
+        ("actualites", "actualites.html", "Actualités"), ("presse", "presse.html", "Presse")]
 
 ICON_LI = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
 ICON_IG = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>'
@@ -71,11 +73,11 @@ def page(fname, title, desc, key, body):
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="site-header">
 <div class="wrap nav">
-<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="" width="48" height="48"><span>AGRITECH PROVENCE</span></a>
+<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="Logo Agritech Provence" width="68" height="68"><span><b>AGRITECH PROVENCE</b><small>Drone · multispectral · IA</small></span></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 <ul class="menu" id="menu">
 {items}
-<li><a class="btn btn--signal" href="contact.html"{contact_cur}>Contact</a></li>
+<li><a class="btn btn--nuit" href="contact.html"{contact_cur}>Contact</a></li>
 </ul>
 </div>
 </header>
@@ -94,10 +96,59 @@ def page(fname, title, desc, key, body):
 '''
 
 
+POSTS_DIR = ROOT / "_src" / "posts"
+MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def load_posts():
+    """Chaque article : _src/posts/<slug>.html, commencant par un commentaire JSON
+    <!--{"title":..., "date":"AAAA-MM-JJ", "category":..., "summary":..., "image":...}-->"""
+    import json, re
+    posts = []
+    for f in POSTS_DIR.glob("*.html"):
+        txt = f.read_text(encoding="utf-8")
+        m = re.match(r"\s*<!--(.*?)-->", txt, re.S)
+        meta = json.loads(m.group(1))
+        meta["slug"] = f.stem
+        meta["body"] = txt[m.end():]
+        y, mo, d = meta["date"].split("-")
+        meta["date_fr"] = f"{int(d)} {MOIS[int(mo) - 1]} {y}"
+        posts.append(meta)
+    return sorted(posts, key=lambda p: p["date"], reverse=True)
+
+
+def card(p):
+    img = f'<img src="{p["image"]}" alt="" loading="lazy" style="aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:#000">' if p.get("image") else ""
+    return (f'<a class="card" href="article-{p["slug"]}.html">{img}<span class="eyebrow">{p["category"]} · {p["date_fr"]}</span>'
+            f'<span class="card-title">{html.escape(p["title"])}</span><span class="muted" style="font-size:16px">{html.escape(p["summary"])}</span>'
+            f'<span class="lien">Lire</span></a>')
+
+
+def article_body(p):
+    return f'''<article>
+<section class="section--nuit"><div class="wrap page-hero stack narrow" style="margin-left:auto;margin-right:auto">
+<p class="eyebrow"><a href="actualites.html" style="color:inherit">Actualités</a> · {p["category"]} · {p["date_fr"]}</p>
+<h1 style="font-size:clamp(34px,4.6vw,52px)">{html.escape(p["title"])}</h1>
+<p class="lead muted">{html.escape(p["summary"])}</p>
+</div></section>
+<section class="section"><div class="wrap narrow prose">
+{p["body"].strip()}
+<p style="margin-top:48px"><a class="btn btn--nuit" href="actualites.html">Toutes les actualités</a></p>
+</div></section>
+</article>'''
+
+
 def main():
     urls = []
+    posts = load_posts()
+    for p in posts:
+        fname = f"article-{p['slug']}.html"
+        (ROOT / fname).write_text(page(fname, p["title"] + " | Agritech Provence", p["summary"], "actualites", article_body(p)), encoding="utf-8")
+        urls.append(SITE_URL + "/" + fname)
+    cards_all = "\n".join(card(p) for p in posts)
+    cards_latest = "\n".join(card(p) for p in posts[:3])
     for fname, title, desc, key in PAGES:
-        body = (SRC / fname).read_text(encoding="utf-8")
+        body = (SRC / fname).read_text(encoding="utf-8").replace("{{POSTS}}", cards_all).replace("{{LATEST}}", cards_latest)
         (ROOT / fname).write_text(page(fname, title, desc, key, body), encoding="utf-8")
         if fname != "404.html":
             urls.append(SITE_URL + "/" + ("" if fname == "index.html" else fname))
