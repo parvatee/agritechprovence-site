@@ -98,21 +98,30 @@ def page(fname, title, desc, key, body):
 
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
-    ("La Marseillaise", "23 oct. 2026", "Des drones et l'IA pour traquer les maladies de la vigne", None, "Lire l'article"),
-    ("La Provence", "6 oct. 2026", "Avec son drone, Agritech Provence décèle les maladies de la vigne vauclusienne", None, "Lire l'article"),
-    ("Be a Boss", "25 sept. 2026", "Be a boss Awards 2026 : Agritech Provence parmi les 17 finalistes nationales", None, "Lire l'article"),
+    # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("La Provence", "6 oct. 2026", "Avec son drone, Agritech Provence décèle les maladies de la vigne vauclusienne",
+     "https://www.laprovence.com/article/ecoplanete/51222930973722/avec-son-drone-agritech-provence-decele-les-maladies-de-la-vigne-vauclusienne", "Lire l'article", True),
+    ("Les Rebondisseurs Français", "28 sept. 2026", "Be a Boss Women Tour 2026 : le rebond au cœur de l'entrepreneuriat féminin",
+     "https://www.lesrebondisseursfrancais.fr/be-a-boss-women-tour-2026-le-rebond-au-coeur-de-lentrepreneuriat-feminin/", "Lire l'article", False),
+    ("Be a Boss", "25 sept. 2026", "Be a boss Awards 2026 : les trois lauréates de la 12e édition",
+     "https://www.beaboss.fr/actualites-1056/be-a-boss-awards-2026-les-trois-laureates-de-la-12e-edition-55929", "Lire l'article", True),
     ("Vaucluse Hebdo", "22 sept. 2026", "Apt : Julie Demarigny révolutionne l'agriculture avec Agritech Provence",
-     "https://mesinfos.fr/84400-apt/apt-julie-demarigny-revolutionne-l-agriculture-avec-agritech-provence-339279.html", "Lire l'article"),
+     "https://mesinfos.fr/84400-apt/apt-julie-demarigny-revolutionne-l-agriculture-avec-agritech-provence-339279.html", "Lire l'article", True),
     ("Presse Agence", "8 sept. 2026", "Le concours « 101 femmes » dévoile ses lauréates 2026",
-     "https://presseagence.fr/paris-entrepreneuriat-feminin-le-concours-101-femmes-devoile-ses-laureates-2026/", "Lire l'article"),
+     "https://presseagence.fr/paris-entrepreneuriat-feminin-le-concours-101-femmes-devoile-ses-laureates-2026/", "Lire l'article", False),
+    ("Immo Project", "22 juil. 2026", "Rencontre les finalistes du Be a Boss Women Tour Sud",
+     "https://www.immoproject.fr/rencontre-les-finalistes-du-be-a-boss-women-tour-sud-qui-dominera/", "Lire l'article", False),
     ("Be a Boss", "6 juil. 2026", "Be a Boss Women Tour Sud : les finalistes !",
-     "https://www.beaboss.fr/creation-dentreprise-1024/be-a-boss-women-tour-sud-deux-entrepreneures-selectionnees-55443", "Lire l'article"),
+     "https://www.beaboss.fr/creation-dentreprise-1024/be-a-boss-women-tour-sud-deux-entrepreneures-selectionnees-55443", "Lire l'article", False),
     ("ICI Vaucluse", "2026", "Des drones expérimentés pour surveiller les vignes de Vaucluse",
-     "https://www.ici.fr/emissions/l-info-d-ici-ici-vaucluse/des-drones-experimentes-pour-surveiller-les-vignes-de-vaucluse-9517578", "Écouter"),
+     "https://www.ici.fr/emissions/l-info-d-ici-ici-vaucluse/des-drones-experimentes-pour-surveiller-les-vignes-de-vaucluse-9517578", "Écouter", False),
+    # A garder en dernier (demande de Julie)
+    ("La Marseillaise", "23 oct. 2026", "Des drones et l'IA pour traquer les maladies de la vigne",
+     "https://www.lamarseillaise.fr/economie/des-drones-et-l-ia-pour-traquer-les-maladies-de-la-vigne-CJ20834116", "Lire l'article", False),
 ]
 
 
-def press_card(m, d, t, url, label):
+def press_card(m, d, t, url, label, home=False):
     inner = f'<span class="eyebrow">{m} · {d}</span><span class="card-title">{html.escape(t)}</span>'
     if url:
         return f'<a class="card" href="{url}">{inner}<span class="lien">{label}</span></a>'
@@ -171,7 +180,7 @@ def main():
     cards_all = "\n".join(card(p) for p in posts)
     cards_latest = "\n".join(card(p) for p in posts[:3])
     for fname, title, desc, key in PAGES:
-        body = (SRC / fname).read_text(encoding="utf-8").replace("{{POSTS}}", cards_all).replace("{{LATEST}}", cards_latest).replace("{{PRESS}}", "\n".join(press_card(*x) for x in PRESS)).replace("{{PRESS3}}", "\n".join(press_card(*x) for x in PRESS[:3]))
+        body = (SRC / fname).read_text(encoding="utf-8").replace("{{POSTS}}", cards_all).replace("{{LATEST}}", cards_latest).replace("{{PRESS}}", "\n".join(press_card(*x) for x in PRESS)).replace("{{PRESS3}}", "\n".join(press_card(*x) for x in PRESS if x[5]))
         (ROOT / fname).write_text(page(fname, title, desc, key, body), encoding="utf-8")
         if fname != "404.html":
             urls.append(SITE_URL + "/" + ("" if fname == "index.html" else fname))
