@@ -1,0 +1,151 @@
+/* Agritech Provence : feuille de style unique */
+:root{
+  --nuit:#0E130C; --nuit-ligne:#263021;
+  --creme:#F5F4EE; --sable:#E9E8DF; --blanc:#fff;
+  --encre:#1A1F16; --gris:#4F5747; --gris-clair:#C3C9B4; --bord:#D3D2C6;
+  --vert:#6D9034; --vert-texte:#4A6620; --vert-fonce:#2E4019; --signal:#CFE07A;
+  --titre:'Archivo',system-ui,sans-serif; --texte:'Source Sans 3',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --rayon:10px; --largeur:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--encre);font-family:var(--texte);font-size:18px;line-height:1.55}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--vert-texte)}a:hover{color:#2A3D10}
+h1,h2,h3{font-family:var(--titre);line-height:1.1;letter-spacing:-.01em;margin:0}
+h1{font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1.02;letter-spacing:-.02em}
+h2{font-weight:700;font-size:clamp(32px,4vw,44px)}
+h3{font-weight:700;font-size:24px}
+p{margin:0}
+.wrap{max-width:var(--largeur);margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+.section{padding:96px 0}
+.section--sable{background:var(--sable)}
+.section--nuit{background:var(--nuit);color:#EEF0E6}
+.section--vert{background:var(--vert-fonce);color:#F2F4EA}
+.stack{display:flex;flex-direction:column;gap:18px}
+.stack--lg{gap:40px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--vert-texte);margin:0}
+.section--nuit .eyebrow{color:var(--signal)} .section--vert .eyebrow{color:#D8E69A}
+.muted{color:var(--gris)} .section--nuit .muted{color:var(--gris-clair)} .section--vert .muted{color:#D5DCC6}
+.lead{font-size:21px}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--min,300px)),1fr))}
+.head-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.center{text-align:center;align-items:center}
+.narrow{max-width:760px;margin-left:auto;margin-right:auto}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:13px 26px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid transparent;font:inherit;font-weight:600;cursor:pointer}
+.btn--signal{background:var(--signal);color:var(--nuit)}.btn--signal:hover{background:#DDEB93;color:var(--nuit)}
+.btn--ghost{border-color:#5B6A4C;color:#EEF0E6}.btn--ghost:hover{border-color:var(--signal);color:var(--signal)}
+.btn--nuit{background:var(--nuit);color:#EEF0E6}.btn--nuit:hover{background:#26301f;color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+
+/* En-tête */
+.site-header{background:var(--nuit);border-bottom:1px solid var(--nuit-ligne);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#EEF0E6}
+.brand img{width:48px;height:48px}
+.brand span{font-family:var(--titre);font-weight:700;font-size:17px;letter-spacing:.04em}
+.menu{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0;font-size:16px}
+.menu a{color:#D6DBC9;text-decoration:none}
+.menu a:hover,.menu a[aria-current="page"]{color:var(--signal)}
+.menu .btn{color:var(--nuit);min-height:44px;padding:10px 20px}
+.menu-toggle{display:none;background:none;border:1px solid #5B6A4C;color:#EEF0E6;border-radius:8px;min-width:48px;min-height:44px;font:inherit;cursor:pointer}
+@media (max-width:1060px){
+  .menu-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 14px}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--nuit);flex-direction:column;align-items:stretch;gap:0;padding:8px 16px 20px;border-bottom:1px solid var(--nuit-ligne)}
+  .menu.is-open{display:flex}
+  .menu li a{display:block;padding:12px 4px}
+  .menu .btn{margin-top:8px;justify-content:center}
+  .nav{position:relative}
+}
+
+/* Héros */
+.hero{padding-top:72px;padding-bottom:88px}
+.hero .grid{--min:440px;gap:56px;align-items:center}
+.hero figcaption,.caption{font-family:var(--mono);font-size:13px;color:#A9B09A;margin-top:12px}
+.caption--clair{color:var(--gris)}
+.page-hero{padding-top:72px;padding-bottom:64px}
+.page-hero p.lead{max-width:720px}
+
+/* Chiffres */
+.stats{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));padding:40px 0 56px;border-top:1px solid var(--nuit-ligne)}
+.stat{display:flex;flex-direction:column;gap:4px}
+.stat b{font-family:var(--titre);font-weight:700;font-size:48px;line-height:1.1;color:var(--signal)}
+.stat span{color:var(--gris-clair)}
+
+/* Cartes */
+.card{background:var(--blanc);border:1px solid var(--bord);border-radius:var(--rayon);padding:30px;display:flex;flex-direction:column;gap:14px}
+.card--creme{background:var(--creme)}
+.card--nuit{background:var(--nuit);color:#EEF0E6;border-color:var(--nuit)}
+.card--nuit .eyebrow{color:var(--signal)} .card--nuit .muted{color:var(--gris-clair)}
+.card .num{font-family:var(--titre);font-weight:800;font-size:40px;color:var(--vert);line-height:1}
+.big{font-family:var(--titre);font-weight:800;font-size:clamp(44px,5vw,64px);line-height:1}
+.card--nuit .big{color:var(--signal)}
+a.card{text-decoration:none;color:var(--encre)} a.card:hover{border-color:var(--vert)}
+.card .lien{font-weight:600;font-size:16px;color:var(--vert-texte)}
+.card-title{font-family:var(--titre);font-weight:600;font-size:20px;line-height:1.25}
+
+/* Figures */
+.fig{margin:0;display:flex;flex-direction:column;gap:14px}
+.fig img{border-radius:6px;width:100%}
+.fig--carre img{aspect-ratio:1.14;object-fit:cover;background:#000}
+.fig figcaption{display:flex;flex-direction:column;gap:4px}
+.fig .step{font-family:var(--mono);font-size:13px;color:var(--vert-texte)}
+.fig .what{font-weight:600;font-size:20px}
+.fig .why{color:var(--gris);font-size:16px}
+
+/* Liste numérotée méthode */
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))}
+.steps li{counter-increment:s;background:var(--blanc);border:1px solid var(--bord);border-radius:var(--rayon);padding:22px 24px 22px 76px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:24px;top:18px;font-family:var(--titre);font-weight:800;font-size:32px;color:var(--vert)}
+.steps b{display:block;font-family:var(--titre);font-size:19px;margin-bottom:4px}
+
+/* Pastilles */
+.tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.tags li{border:1px solid var(--bord);background:var(--blanc);border-radius:999px;padding:6px 14px;font-size:15px}
+
+/* Logos */
+.logos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.logo-card{background:#fff;border:1px solid var(--bord);border-radius:var(--rayon);padding:20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.logo-card img{height:56px;width:auto;object-fit:contain}
+.logo-card--dark img{background:#111;padding:6px;border-radius:4px}
+
+/* Détails repliables */
+details.fold{background:var(--blanc);border:1px solid var(--bord);border-radius:var(--rayon);padding:0 24px}
+details.fold summary{cursor:pointer;font-weight:600;padding:18px 0;min-height:44px}
+details.fold[open] summary{border-bottom:1px solid var(--bord);margin-bottom:16px}
+details.fold > *:last-child{padding-bottom:20px}
+
+/* Citation */
+.quote{font-family:var(--titre);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.2}
+.quote em{font-style:normal;color:var(--vert-texte)}
+
+/* Tableaux presse */
+.press-list{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+
+/* Contact */
+.form-frame{background:var(--creme);border:1px solid var(--bord);border-radius:var(--rayon);padding:12px;min-height:400px}
+.form-frame iframe{width:100%;height:1150px;border:0}
+.socials{display:flex;gap:12px}
+.socials a{width:48px;height:48px;border-radius:999px;background:var(--nuit);display:flex;align-items:center;justify-content:center}
+.socials svg{width:20px;height:20px}
+
+/* Pied de page */
+.site-footer{background:var(--nuit);color:#A9B09A;font-size:15px}
+.site-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;padding-top:40px;padding-bottom:40px}
+.site-footer a{color:#D6DBC9}
+.site-footer .brand-mini{display:flex;align-items:center;gap:12px}
+.site-footer .brand-mini img{width:40px;height:40px}
+.site-footer nav{display:flex;flex-wrap:wrap;gap:22px}
+
+/* Mentions légales */
+.legal h2{font-size:24px;margin-top:32px}
+.legal p{margin-top:8px}
+
+.skip{position:absolute;left:-999px;top:0;background:var(--signal);color:var(--nuit);padding:10px 16px;z-index:20}
+.skip:focus{left:16px;top:8px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+body{overflow-wrap:break-word}
+a[href^="mailto"]{overflow-wrap:anywhere}
