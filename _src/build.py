@@ -100,6 +100,8 @@ def page(fname, title, desc, key, body):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("France 3", "oct. 2026", "Agritech Provence au journal télévisé régional",
+     "https://www.youtube.com/watch?v=4n-f7c0yZIA", "Regarder le reportage", True),
     ("La Provence", "6 oct. 2026", "Avec son drone, Agritech Provence décèle les maladies de la vigne vauclusienne",
      "https://www.laprovence.com/article/ecoplanete/51222930973722/avec-son-drone-agritech-provence-decele-les-maladies-de-la-vigne-vauclusienne", "Lire l'article", True),
     ("Les Rebondisseurs Français", "28 sept. 2026", "Be a Boss Women Tour 2026 : le rebond au cœur de l'entrepreneuriat féminin",
@@ -107,7 +109,7 @@ PRESS = [
     ("Be a Boss", "25 sept. 2026", "Be a boss Awards 2026 : les trois lauréates de la 12e édition",
      "https://www.beaboss.fr/actualites-1056/be-a-boss-awards-2026-les-trois-laureates-de-la-12e-edition-55929", "Lire l'article", True),
     ("Vaucluse Hebdo", "22 sept. 2026", "Apt : Julie Demarigny révolutionne l'agriculture avec Agritech Provence",
-     "https://mesinfos.fr/84400-apt/apt-julie-demarigny-revolutionne-l-agriculture-avec-agritech-provence-339279.html", "Lire l'article", True),
+     "https://mesinfos.fr/84400-apt/apt-julie-demarigny-revolutionne-l-agriculture-avec-agritech-provence-339279.html", "Lire l'article", False),
     ("Presse Agence", "8 sept. 2026", "Le concours « 101 femmes » dévoile ses lauréates 2026",
      "https://presseagence.fr/paris-entrepreneuriat-feminin-le-concours-101-femmes-devoile-ses-laureates-2026/", "Lire l'article", False),
     ("Immo Project", "22 juil. 2026", "Rencontre les finalistes du Be a Boss Women Tour Sud",
