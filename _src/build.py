@@ -100,6 +100,8 @@ def page(fname, title, desc, key, body):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("L'Écho du Mardi", "26 oct. 2026", "Agritech Provence : un drone et de l'intelligence artificielle au service de la viticulture",
+     "https://www.echodumardi.com/economie/video-agritech-provence-un-drone-et-de-lintelligence-artificielle-au-service-de-la-viticulture/", "Lire et regarder", True),
     ("France 3 Provence-Alpes-Côte d'Azur", "24 oct. 2026", "Un drone et l'IA pour surveiller les vignes du Vaucluse",
      "https://www.youtube.com/watch?v=4n-f7c0yZIA", "Regarder le reportage", True),
     ("La Provence", "6 oct. 2026", "Avec son drone, Agritech Provence décèle les maladies de la vigne vauclusienne",
@@ -107,7 +109,7 @@ PRESS = [
     ("Les Rebondisseurs Français", "28 sept. 2026", "Be a Boss Women Tour 2026 : le rebond au cœur de l'entrepreneuriat féminin",
      "https://www.lesrebondisseursfrancais.fr/be-a-boss-women-tour-2026-le-rebond-au-coeur-de-lentrepreneuriat-feminin/", "Lire l'article", False),
     ("Be a Boss", "25 sept. 2026", "Be a boss Awards 2026 : les trois lauréates de la 12e édition",
-     "https://www.beaboss.fr/actualites-1056/be-a-boss-awards-2026-les-trois-laureates-de-la-12e-edition-55929", "Lire l'article", True),
+     "https://www.beaboss.fr/actualites-1056/be-a-boss-awards-2026-les-trois-laureates-de-la-12e-edition-55929", "Lire l'article", False),
     ("Vaucluse Hebdo", "22 sept. 2026", "Apt : Julie Demarigny révolutionne l'agriculture avec Agritech Provence",
      "https://mesinfos.fr/84400-apt/apt-julie-demarigny-revolutionne-l-agriculture-avec-agritech-provence-339279.html", "Lire l'article", False),
     ("Presse Agence", "8 sept. 2026", "Le concours « 101 femmes » dévoile ses lauréates 2026",
