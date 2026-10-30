@@ -100,6 +100,8 @@ def page(fname, title, desc, key, body):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("Vaucluse Agricole · Instagram", "oct. 2026", "Reel consacré à Agritech Provence",
+     "https://www.instagram.com/reel/DfHO6WAo7I0/", "Voir le reel", False),
     ("Vaucluse le Mag", "n° 132, automne 2026", "Agritech Provence, des drones pour veiller sur les vignes",
      "https://www.vaucluse.fr/information-transversale/publications-131", "Voir le magazine", False),
     ("L'Écho du Mardi", "26 oct. 2026", "Agritech Provence : un drone et de l'intelligence artificielle au service de la viticulture",
