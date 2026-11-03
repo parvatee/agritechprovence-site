@@ -28,6 +28,8 @@ PAGES = [
      "Vigneron, journaliste, institution ou partenaire : parlons de vos vignes.", "contact"),
     ("actualites.html", "Actualités et veille | Agritech Provence",
      "Actualités d'Agritech Provence et veille sur le drone agricole, l'imagerie multispectrale et la santé de la vigne.", "actualites"),
+    ("veille.html", "Revue de veille vigne et drone | Agritech Provence",
+     "Chaque semaine, les actualités de la vigne et du drone classées par catégorie, mots clés et date : résumé, analyse d'Agritech Provence et lien vers la source.", "actualites"),
     ("mentions-legales.html", "Mentions légales | Agritech Provence",
      "Mentions légales et données personnelles du site Agritech Provence.", None),
     ("404.html", "Page introuvable | Agritech Provence", "Cette page n'existe pas.", None),
@@ -48,6 +50,8 @@ def page(fname, title, desc, key, body):
         for k, href, label in MENU)
     contact_cur = ' aria-current="page"' if key == "contact" else ""
     extra_js = '\n<script src="assets/js/form.js"></script>' if key == "contact" else ""
+    if fname == "veille.html":
+        extra_js = '\n<script src="assets/js/veille.js"></script>'
     canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
     body = body.replace("{{LINKEDIN}}", LINKEDIN).replace("{{INSTAGRAM}}", INSTAGRAM) \
                .replace("{{ICON_LI}}", ICON_LI).replace("{{ICON_IG}}", ICON_IG)
@@ -181,9 +185,69 @@ def article_body(p):
 </article>'''
 
 
+VEILLE_FILE = ROOT / "_src" / "veille.json"
+VEILLE_CATS = ["Réglementaire", "Agricole", "Technique", "Agronomique"]
+
+
+def date_fr(iso):
+    y, mo, d = iso.split("-")
+    return f"{int(d)} {MOIS[int(mo) - 1]} {y}"
+
+
+def load_veille():
+    """Revue de veille : _src/veille.json, une entree par actualite retenue.
+    Champs : date (publication de la source, AAAA-MM-JJ), semaine (lundi de la veille),
+    categorie (une de VEILLE_CATS), titre, source, url, pays, mots_cles (liste), resume, lecture."""
+    import json
+    items = json.loads(VEILLE_FILE.read_text(encoding="utf-8")) if VEILLE_FILE.exists() else []
+    for it in items:
+        if it["categorie"] not in VEILLE_CATS:
+            raise ValueError(f"Catégorie inconnue : {it['categorie']} ({it['titre']})")
+    return sorted(items, key=lambda it: (it["semaine"], it["date"]), reverse=True)
+
+
+def veille_item(it):
+    e = html.escape
+    kws = [k.lower() for k in it.get("mots_cles", [])]
+    tags = "".join(f"<li>{e(k)}</li>" for k in it.get("mots_cles", []))
+    lecture = f'<p class="veille-lecture"><b>Notre lecture</b> : {e(it["lecture"])}</p>' if it.get("lecture") else ""
+    return (f'<article class="card veille-item" data-cat="{e(it["categorie"])}" data-kw="{e("|".join(kws))}" '
+            f'data-mois="{it["date"][:7]}">'
+            f'<p class="eyebrow">{e(it["categorie"])} · {e(it.get("pays", ""))} · <time datetime="{it["date"]}">{date_fr(it["date"])}</time></p>'
+            f'<h3 class="card-title">{e(it["titre"])}</h3>'
+            f'<p>{e(it["resume"])}</p>{lecture}'
+            f'<ul class="tags">{tags}</ul>'
+            f'<p class="veille-source">Source : <a href="{e(it["url"])}" rel="noopener">{e(it["source"])}</a></p>'
+            f'</article>')
+
+
+def veille_blocks(items):
+    """Renvoie les remplacements des marqueurs {{VEILLE...}} de la page veille."""
+    e = html.escape
+    weeks = []
+    for it in items:
+        if not weeks or weeks[-1][0] != it["semaine"]:
+            weeks.append((it["semaine"], []))
+        weeks[-1][1].append(it)
+    sections = "\n".join(
+        f'<section class="veille-semaine stack"><h2>Semaine du {date_fr(w)}</h2>'
+        f'<div class="press-list">{"".join(veille_item(it) for it in lst)}</div></section>'
+        for w, lst in weeks)
+    cats = "\n".join(f'<button type="button" class="veille-chip" aria-pressed="false" data-val="{e(c)}">{c}</button>' for c in VEILLE_CATS)
+    kws = {}
+    for it in items:
+        for k in it.get("mots_cles", []):
+            kws.setdefault(k.lower(), k)
+    kw_opts = "\n".join(f'<option value="{e(k)}">{e(v)}</option>' for k, v in sorted(kws.items()))
+    mois = sorted({it["date"][:7] for it in items}, reverse=True)
+    mois_opts = "\n".join(f'<option value="{m}">{MOIS[int(m[5:]) - 1].capitalize()} {m[:4]}</option>' for m in mois)
+    return {"{{VEILLE}}": sections, "{{VEILLE_CATS}}": cats, "{{VEILLE_KW}}": kw_opts, "{{VEILLE_MOIS}}": mois_opts}
+
+
 def main():
     urls = []
     posts = load_posts()
+    veille = veille_blocks(load_veille())
     for p in posts:
         fname = f"article-{p['slug']}.html"
         (ROOT / fname).write_text(page(fname, p["title"] + " | Agritech Provence", p["summary"], "actualites", article_body(p)), encoding="utf-8")
@@ -192,6 +256,8 @@ def main():
     cards_latest = "\n".join(card(p) for p in posts[:3])
     for fname, title, desc, key in PAGES:
         body = (SRC / fname).read_text(encoding="utf-8").replace("{{POSTS}}", cards_all).replace("{{LATEST}}", cards_latest).replace("{{PRESS}}", "\n".join(press_card(*x) for x in PRESS)).replace("{{PRESS3}}", "\n".join(press_card(*x) for x in PRESS if x[5]))
+        for k, v in veille.items():
+            body = body.replace(k, v)
         (ROOT / fname).write_text(page(fname, title, desc, key, body), encoding="utf-8")
         if fname != "404.html":
             urls.append(SITE_URL + "/" + ("" if fname == "index.html" else fname))
