@@ -7,7 +7,7 @@ import pathlib, html
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "_src" / "pages"
 SITE_URL = "https://www.agritechprovence.com"
-LINKEDIN = "https://www.linkedin.com/in/jdemarigny/"
+LINKEDIN = "https://www.linkedin.com/company/agritech-provence/"
 INSTAGRAM = "https://www.instagram.com/agritech_provence"
 
 PAGES = [
@@ -100,7 +100,7 @@ def page(fname, title, desc, key, body):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
-    ("Force Femmes · LinkedIn", "nov. 2026", "Force Femmes met en lumière Agritech Provence",
+    ("Force Femmes · LinkedIn", "3 nov. 2026", "Interview de Julie Demarigny : « ne jamais rien lâcher »",
      "https://lnkd.in/p/dpwk-u8C", "Lire le post", False),
     ("Vaucluse Agricole · Instagram", "30 oct. 2026", "Et si les drones devenaient les prochains alliés des viticulteurs ?",
      "https://www.instagram.com/reel/DfHO6WAo7I0/", "Voir le reel", False),
