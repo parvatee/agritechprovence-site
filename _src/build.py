@@ -100,6 +100,8 @@ def page(fname, title, desc, key, body):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("Force Femmes · LinkedIn", "nov. 2026", "Force Femmes met en lumière Agritech Provence",
+     "https://lnkd.in/p/dpwk-u8C", "Lire le post", False),
     ("Vaucluse Agricole · Instagram", "30 oct. 2026", "Et si les drones devenaient les prochains alliés des viticulteurs ?",
      "https://www.instagram.com/reel/DfHO6WAo7I0/", "Voir le reel", False),
     ("Vaucluse le Mag", "n° 132, automne 2026", "Agritech Provence, des drones pour veiller sur les vignes",
