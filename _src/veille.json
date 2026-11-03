@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2026-10-31",
+    "semaine": "2026-11-02",
+    "categorie": "Réglementaire",
+    "titre": "Flavescence dorée : le seuil d'arrachage pourra descendre à 10 % en 2027",
+    "source": "Vinabox, d'après le projet d'arrêté du ministère de l'Agriculture",
+    "url": "https://www.vinabox.fr/actu/reglementation/flavescence-doree-seuil-arrachage-10-pourcent-2027/",
+    "pays": "France",
+    "mots_cles": ["flavescence dorée", "arrachage", "arrêté", "consultation publique"],
+    "resume": "Le projet d'arrêté qui remplacerait celui du 27 avril 2021 laisserait le préfet de région fixer le seuil d'arrachage d'une parcelle entre 10 et 20 % de ceps atteints, cumulés sur trois campagnes. En zone d'enrayement, le seuil resterait à 20 %. Entrée en vigueur visée : 1er janvier 2027 ; la consultation publique a été prolongée.",
+    "lecture": "À 10 %, une parcelle de 5 000 pieds par hectare bascule dès 500 ceps atteints au lieu de 1 000. La prospection à pied reste la base ; tout ce qui aide à regarder au bon endroit et à garder la mémoire des foyers d'une année sur l'autre prend plus de valeur."
+  },
+  {
+    "date": "2026-10-21",
+    "semaine": "2026-11-02",
+    "categorie": "Réglementaire",
+    "titre": "États-Unis : la filière des drones de pulvérisation demande une exemption face au projet de la FCC",
+    "source": "DroneXL",
+    "url": "https://dronexl.co/drones-for-agriculture/",
+    "pays": "États-Unis",
+    "mots_cles": ["épandage par drone", "DJI", "réglementation"],
+    "resume": "La coalition américaine des drones de pulvérisation (ASDC) indique que les ventes ont chuté de 59 % en 2025 après le blocage de livraisons DJI en douane. Elle demande que les drones de traitement agricole échappent au projet de la FCC visant à interdire l'importation et la vente de plusieurs catégories de drones de fabrication étrangère.",
+    "lecture": "Pas d'effet direct en Europe à ce stade. L'épisode rappelle la dépendance de toute la filière à un fabricant dominant : la disponibilité des appareils est à anticiper au même titre que l'autorisation."
+  },
+  {
+    "date": "2026-10-07",
+    "semaine": "2026-11-02",
+    "categorie": "Agricole",
+    "titre": "Vendange 2026 : près de 35 millions d'hectolitres, une récolte historiquement basse",
+    "source": "Sud Radio, d'après l'AFP et Agreste",
+    "url": "https://www.sudradio.fr/societe/la-vendange-2026-revue-legerement-a-la-hausse-toujours-historiquement-basse",
+    "pays": "France",
+    "mots_cles": ["récolte", "vendanges", "économie"],
+    "resume": "Le service statistique du ministère de l'Agriculture a relevé son estimation à près de 35 millions d'hectolitres, environ 2 % sous 2025 et 14 % sous la moyenne 2021 à 2025. La hausse vient surtout de rendements meilleurs que prévu en Languedoc-Roussillon.",
+    "lecture": "Une petite récolte rend chaque grappe sauvée plus précieuse. Gagner du temps de prospection et intervenir au bon endroit, c'est protéger directement le revenu."
+  },
+  {
+    "date": "2026-10-26",
+    "semaine": "2026-11-02",
+    "categorie": "Technique",
+    "titre": "Espagne : un robot quadrupède commence à arpenter les vignes de Ribera del Duero",
+    "source": "Global Agriculture",
+    "url": "https://www.global-agriculture.com/ag-tech-research-news/robot-dog-agrhound-starts-scouting-spanish-vineyards-and-berry-farms/",
+    "pays": "Espagne",
+    "mots_cles": ["robotique", "IA", "vigueur"],
+    "resume": "Le centre technologique CTAEX teste Agrhound, un robot à quatre pattes équipé de caméras et de capteurs, sur des parcelles de Tempranillo en pente et en terrasses. Ses données alimentent des modèles d'IA sur la vigueur, l'état physiologique et le rendement. Aucune performance n'est encore publiée ; le projet court jusqu'en 2029.",
+    "lecture": "Le drone voit le dessus du couvert, vite et sur de grandes surfaces ; un robot au sol voit sous le feuillage, lentement. Le premier dit où aller, le second pourrait un jour aller y regarder de près."
+  },
+  {
+    "date": "2026-09-26",
+    "semaine": "2026-11-02",
+    "categorie": "Agronomique",
+    "titre": "Virus de la tache rouge : une IA légère retrouve 87 % des ceps infectés, avec une fiabilité encore modérée",
+    "source": "Sanaeifar et al., Smart Agricultural Technology",
+    "url": "https://www.sciencedirect.com/science/article/pii/S2772375526008245",
+    "pays": "États-Unis",
+    "mots_cles": ["IA", "hyperspectral", "virus", "télédétection"],
+    "resume": "Des chercheurs ont entraîné un modèle compact de vision par ordinateur sur des images hyperspectrales de drone de 714 ceps contrôlés par analyse PCR, en Napa Valley. Le modèle donne 75 % de bonnes réponses et retrouve 87 % des ceps infectés. Les auteurs jugent eux-mêmes cette précision modérée.",
+    "lecture": "L'IA ne pose pas de diagnostic, elle trie. Un modèle qui retrouve la plupart des ceps malades mais se trompe une fois sur quatre est un bon outil pour décider où marcher, pas pour décider quoi arracher."
+  }
+]
