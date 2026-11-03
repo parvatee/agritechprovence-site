@@ -27,9 +27,7 @@ PAGES = [
     ("contact.html", "Contact | Agritech Provence",
      "Vigneron, journaliste, institution ou partenaire : parlons de vos vignes.", "contact"),
     ("actualites.html", "Actualités et veille | Agritech Provence",
-     "Actualités d'Agritech Provence et veille sur le drone agricole, l'imagerie multispectrale et la santé de la vigne.", "actualites"),
-    ("veille.html", "Revue de veille vigne et drone | Agritech Provence",
-     "Chaque semaine, les actualités de la vigne et du drone classées par catégorie, mots clés et date : résumé, analyse d'Agritech Provence et lien vers la source.", "actualites"),
+     "Articles d'Agritech Provence et revue de veille hebdomadaire sur la vigne et le drone, classée par catégorie, mots clés et date, avec résumé, analyse et lien vers la source.", "actualites"),
     ("mentions-legales.html", "Mentions légales | Agritech Provence",
      "Mentions légales et données personnelles du site Agritech Provence.", None),
     ("404.html", "Page introuvable | Agritech Provence", "Cette page n'existe pas.", None),
@@ -50,7 +48,7 @@ def page(fname, title, desc, key, body):
         for k, href, label in MENU)
     contact_cur = ' aria-current="page"' if key == "contact" else ""
     extra_js = '\n<script src="assets/js/form.js"></script>' if key == "contact" else ""
-    if fname == "veille.html":
+    if fname == "actualites.html":
         extra_js = '\n<script src="assets/js/veille.js"></script>'
     canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
     body = body.replace("{{LINKEDIN}}", LINKEDIN).replace("{{INSTAGRAM}}", INSTAGRAM) \
@@ -222,7 +220,7 @@ def veille_item(it):
 
 
 def veille_blocks(items):
-    """Renvoie les remplacements des marqueurs {{VEILLE...}} de la page veille."""
+    """Renvoie les remplacements des marqueurs {{VEILLE...}} de la page Actualités."""
     e = html.escape
     weeks = []
     for it in items:
@@ -230,7 +228,7 @@ def veille_blocks(items):
             weeks.append((it["semaine"], []))
         weeks[-1][1].append(it)
     sections = "\n".join(
-        f'<section class="veille-semaine stack"><h2>Semaine du {date_fr(w)}</h2>'
+        f'<section class="veille-semaine stack"><h3>Semaine du {date_fr(w)}</h3>'
         f'<div class="press-list">{"".join(veille_item(it) for it in lst)}</div></section>'
         for w, lst in weeks)
     cats = "\n".join(f'<button type="button" class="veille-chip" aria-pressed="false" data-val="{e(c)}">{c}</button>' for c in VEILLE_CATS)
@@ -261,6 +259,14 @@ def main():
         (ROOT / fname).write_text(page(fname, title, desc, key, body), encoding="utf-8")
         if fname != "404.html":
             urls.append(SITE_URL + "/" + ("" if fname == "index.html" else fname))
+    # Ancienne adresse de la revue de veille : redirige vers la section de la page Actualités
+    (ROOT / "veille.html").write_text(
+        '<!doctype html>\n<html lang="fr"><head><meta charset="utf-8">'
+        f'<link rel="canonical" href="{SITE_URL}/actualites.html#veille">'
+        '<meta name="robots" content="noindex">'
+        '<meta http-equiv="refresh" content="0; url=actualites.html#veille">'
+        '<title>Revue de veille | Agritech Provence</title></head>'
+        '<body><p><a href="actualites.html#veille">Revue de veille</a></p></body></html>\n', encoding="utf-8")
     sm = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
     (ROOT / "sitemap.xml").write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sm}\n</urlset>\n', encoding="utf-8")

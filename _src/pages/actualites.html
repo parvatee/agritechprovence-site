@@ -2,13 +2,47 @@
 <div class="wrap page-hero stack">
 <p class="eyebrow">Actualités et veille</p>
 <h1>Ce qui bouge dans la vigne,<br>vu du ciel.</h1>
-<p class="lead muted">Nos vols, nos résultats, et notre veille sur le drone agricole, l'imagerie multispectrale, la réglementation et la santé de la vigne. Un article par mois.</p>
-<p><a class="btn btn--signal" href="veille.html">Revue de veille, mise à jour chaque semaine</a></p>
+<p class="lead muted">Nos articles de fond, et chaque semaine notre veille sur le drone agricole, l'imagerie multispectrale, la réglementation et la santé de la vigne.</p>
+<p class="btns"><a class="btn btn--signal" href="#articles">Nos articles</a><a class="btn btn--ghost" href="#veille">Revue de veille</a></p>
 </div>
 </section>
 
-<section class="section">
-<div class="wrap press-list">
+<section class="section" id="articles">
+<div class="wrap stack stack--lg">
+<div class="stack" style="gap:10px"><p class="eyebrow">Nos articles</p><h2>Comprendre, avec nos images de terrain</h2></div>
+<div class="press-list">
 {{POSTS}}
+</div>
+</div>
+</section>
+
+<section class="section section--sable" id="veille">
+<div class="wrap stack stack--lg">
+<div class="stack" style="gap:10px"><p class="eyebrow">Revue de veille · mise à jour chaque semaine</p><h2>L'actualité vigne et drone, lue par une équipe de terrain</h2>
+<p class="muted">Les actualités qui comptent pour un vigneron : un court résumé, notre lecture, et le lien vers la source.</p></div>
+<form class="veille-filtres" role="search" aria-label="Filtrer la veille" onsubmit="return false">
+<div class="stack" style="gap:10px">
+<p class="eyebrow">Catégorie</p>
+<div class="veille-chips" data-filtre="cat">
+<button type="button" class="veille-chip" aria-pressed="true" data-val="">Toutes</button>
+{{VEILLE_CATS}}
+</div>
+</div>
+<div class="veille-ligne">
+<label>Mot clé
+<select data-filtre="kw"><option value="">Tous</option>
+{{VEILLE_KW}}
+</select></label>
+<label>Période
+<select data-filtre="mois"><option value="">Toutes</option>
+{{VEILLE_MOIS}}
+</select></label>
+<label class="veille-recherche">Rechercher
+<input type="search" data-filtre="q" placeholder="mildiou, arrêté, Sentinel..."></label>
+</div>
+<p class="muted veille-compte" aria-live="polite"></p>
+</form>
+{{VEILLE}}
+<p class="muted veille-vide" hidden>Aucune actualité ne correspond à ces filtres.</p>
 </div>
 </section>
