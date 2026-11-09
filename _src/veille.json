@@ -1,5 +1,104 @@
 [
   {
+    "date": "2026-11-03",
+    "semaine": "2026-11-09",
+    "categorie": "Réglementaire",
+    "titre": "Moselle : le drone remplace l'hélicoptère sur les coteaux du papillon Apollon dès 2027",
+    "source": "Proplanta (dpa)",
+    "url": "https://www.proplanta.de/agrar-nachrichten/umwelt/keine-hubschrauber-pestizidspritzungen-mehr-in-mosel-apollo-gebieten-ab-2027_article1793674580.html",
+    "pays": "Allemagne",
+    "mots_cles": [
+      "épandage par drone",
+      "réglementation",
+      "biodiversité",
+      "Moselle"
+    ],
+    "resume": "Le Land de Rhénanie-Palatinat n'accordera plus de dérogations pour traiter par hélicoptère les vignes en forte pente où vit l'Apollon de la Moselle, soit 60 à 65 ha. À partir de 2027, ces parcelles ne pourront être traitées que par drone, sur dérogation. La décision clôt trois ans de contentieux avec l'ONG Deutsche Umwelthilfe.",
+    "lecture": "L'Allemagne ne débat plus du drone, elle l'impose là où l'hélicoptère ne passe plus. Un argument de plus pour préparer avec des données de terrain solides la demande d'expérimentation d'épandage bio dans le Luberon en 2027."
+  },
+  {
+    "date": "2026-11-05",
+    "semaine": "2026-11-09",
+    "categorie": "Réglementaire",
+    "titre": "Omnibus pesticides : pas de vote au Parlement européen avant décembre",
+    "source": "La Gazette France (AFP)",
+    "url": "https://www.lagazettefrance.fr/article/des-pesticides-illimites-pas-de-vote-avant-decembre-au-parlement-europeen",
+    "pays": "Union européenne",
+    "mots_cles": [
+      "réglementation",
+      "pesticides",
+      "Parlement européen"
+    ],
+    "resume": "Le texte « Omnibus X », qui allongerait la durée des autorisations de substances, attend toujours la position du Parlement européen : vote possible en commission Environnement début décembre, puis en plénière mi-décembre, après plusieurs reports. Les États membres réservent l'autorisation sans limite de temps aux substances à faible risque.",
+    "lecture": "Le calendrier européen compte autant que le cadre français pour tout projet de traitement. Nous suivons le texte jusqu'au vote de décembre."
+  },
+  {
+    "date": "2026-11-03",
+    "semaine": "2026-11-09",
+    "categorie": "Réglementaire",
+    "titre": "États-Unis : la FCC n'a pas renoncé à interdire les drones de pulvérisation étrangers",
+    "source": "DroneXL",
+    "url": "https://dronexl.co/2026/11/03/fcc-adam-chan-military-grade-drone-ban-transition-period/",
+    "pays": "États-Unis",
+    "mots_cles": [
+      "épandage par drone",
+      "DJI",
+      "réglementation"
+    ],
+    "resume": "Un conseiller de la FCC confirme que l'agence envisage toujours d'interdire l'import et la vente de drones étrangers déjà autorisés dans plusieurs catégories, dont la pulvérisation et la thermique. Une période de transition est évoquée ; la proposition de juillet prévoit 180 jours.",
+    "lecture": "Suite du dossier de la semaine dernière. Pas d'effet en Europe, mais la dépendance à un fabricant dominant concerne aussi les drones de détection."
+  },
+  {
+    "date": "2026-11-06",
+    "semaine": "2026-11-09",
+    "categorie": "Agricole",
+    "titre": "Récolte 2026 relevée à 36,7 millions d'hectolitres",
+    "source": "Vinabox, d'après Agreste",
+    "url": "https://www.vinabox.fr/actu/vendanges-millesimes/vendanges-2026-recolte-france-36-7-millions-hectolitres-agreste-novembre/",
+    "pays": "France",
+    "mots_cles": [
+      "récolte",
+      "vendanges",
+      "économie"
+    ],
+    "resume": "Au 1er novembre, l'Agreste estime la récolte française à 36,7 millions d'hl, soit 3 % de plus qu'en 2025 mais 10 % sous la moyenne 2021-2025. Le Languedoc-Roussillon progresse de 25 % et le Sud-Est de 7 %, tandis que la Champagne recule nettement.",
+    "lecture": "Plus de volume ne veut pas dire plus de revenu. Avec des prix tendus, le temps de prospection devient un coût que les domaines regardent de près : savoir où aller voir a une valeur directe."
+  },
+  {
+    "date": "2026-10-30",
+    "semaine": "2026-11-09",
+    "categorie": "Technique",
+    "titre": "Sentinel-2 affiné à 3 mètres : moins fiable en vigne qu'en grandes cultures",
+    "source": "Frontiers in Plant Science (IRTA)",
+    "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2026.1974500/full",
+    "pays": "Espagne",
+    "mots_cles": [
+      "satellite",
+      "Sentinel-2",
+      "télédétection",
+      "vigueur"
+    ],
+    "resume": "Des chercheurs de l'IRTA ont validé les variables de végétation de Sentinel-2 puis les ont affinées à 3 m en les fusionnant avec des images PlanetScope, avec des cartes issues de drone comme référence pour les vignes. La méthode est exploitable, mais l'indice foliaire reste la variable la moins fiable et les résultats en vigne sont plus dispersés qu'en grandes cultures.",
+    "lecture": "Le satellite est utile pour suivre la vigueur à l'échelle d'un îlot. Pour désigner un rang ou un groupe de ceps, la résolution du drone reste nécessaire ; les chercheurs l'utilisent d'ailleurs comme référence."
+  },
+  {
+    "date": "2026-10-23",
+    "semaine": "2026-11-09",
+    "categorie": "Agronomique",
+    "titre": "Madère : les liens entre indices drone et rendement changent d'une année à l'autre",
+    "source": "MDPI Remote Sensing",
+    "url": "https://www.mdpi.com/2072-4292/18/21/3650",
+    "pays": "Portugal",
+    "mots_cles": [
+      "NDRE",
+      "télédétection",
+      "rendement",
+      "drone"
+    ],
+    "resume": "Sur un Verdelho de Madère suivi deux saisons par drone multispectral, les corrélations entre indices (NDRE, GNDVI) et rendement ou qualité sont nombreuses en 2024, beaucoup plus rares en 2025, année plus humide. Après correction statistique, aucune ne reste significative ; les auteurs demandent plus de saisons et de sites avant de généraliser.",
+    "lecture": "Un indice ne pose pas de diagnostic. C'est pour cela que chaque zone désignée par le drone est vérifiée au sol, et que chaque vol compte : la base d'images s'enrichit saison après saison."
+  },
+  {
     "date": "2026-10-31",
     "semaine": "2026-11-02",
     "categorie": "Réglementaire",
