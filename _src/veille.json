@@ -1,5 +1,70 @@
 [
   {
+    "date": "2026-11-11",
+    "semaine": "2026-11-16",
+    "categorie": "Agricole",
+    "titre": "Flavescence dorée : « Pomme », l'outil national de prospection, attendu pour 2027",
+    "source": "Vinetur",
+    "url": "https://www.vinetur.com/fr/20261111110811/france-will-deploy-a-vineyard-disease-app-nationwide-in-2027.html",
+    "pays": "France",
+    "mots_cles": [
+      "flavescence dorée",
+      "prospection",
+      "outil numérique"
+    ],
+    "resume": "Lancée par le GDON des Bordeaux avec des partenaires bordelais et alsaciens, l'application Pomme sert à préparer les inspections, délimiter les zones à prospecter et saisir les observations directement dans les rangs. Testée dans cinq régions en 2025 puis huit en 2026, elle doit être disponible pour les prospections de 2027 ; ses données rejoindront la plateforme nationale d'épidémiosurveillance en santé végétale.",
+    "lecture": "La prospection se numérise enfin à l'échelle nationale, et c'est une bonne nouvelle. Pomme organise la marche dans les rangs ; une carte vue du ciel peut lui dire par où commencer. Les deux se complètent, et des foyers géolocalisés deviennent comparables d'une année sur l'autre."
+  },
+  {
+    "date": "2026-11-09",
+    "semaine": "2026-11-16",
+    "categorie": "Agronomique",
+    "titre": "Bourgogne : huit candidats résistants au mildiou et à l'oïdium plantés à Fontaines",
+    "source": "Vinetur, d'après Vitisphere et le BIVB",
+    "url": "https://www.vinetur.com/en/20261109110670/burgundy-plants-eight-disease-resistant-grape-candidates-in-fontaines.html",
+    "pays": "France",
+    "mots_cles": [
+      "cépages résistants",
+      "mildiou",
+      "oïdium",
+      "Bourgogne"
+    ],
+    "resume": "Le programme CEPInnov (BIVB, Comité Champagne, INRAE de Colmar et IFV) a planté 17 ares à Fontaines, en Saône-et-Loire : trois candidats de la famille du Chardonnay et cinq de la famille du Pinot noir, environ 100 pieds chacun, issus de croisements lancés en 2015, sans OGM ni édition génomique. Selon le BIVB, aucune variété ne sera disponible avant 2035, et seulement comme cépage accessoire.",
+    "lecture": "Les cépages résistants arrivent, lentement. D'ici là, et même après, la vigne restera à surveiller : ces gènes visent le mildiou et l'oïdium, pas la flavescence dorée, et une résistance se préserve en repérant tôt ce qui la met en défaut."
+  },
+  {
+    "date": "2026-11-11",
+    "semaine": "2026-11-16",
+    "categorie": "Agronomique",
+    "titre": "Brésil : huit cépages résistants cultivés sans traitement anti-mildiou sur deux cycles",
+    "source": "Vinetur, d'après l'EPAMIG",
+    "url": "https://www.vinetur.com/en/20261111110812/brazil-trial-finds-8-grape-varieties-slash-fungicide-use-in-minas-gerais-vineyards.html",
+    "pays": "Brésil",
+    "mots_cles": [
+      "cépages résistants",
+      "mildiou",
+      "oïdium"
+    ],
+    "resume": "L'institut de recherche agricole du Minas Gerais (EPAMIG) a suivi de 2021 à 2025 huit cépages résistants fournis par les pépinières Rauscedo, dont Sauvignon Kretos, Soreli et Merlot Kanthus. Aucun traitement contre le mildiou n'a été nécessaire sur les deux derniers cycles, mais trois traitements contre l'oïdium ont été appliqués.",
+    "lecture": "Un climat à deux récoltes par an ne se transpose pas au Luberon. Le signal utile est ailleurs : même un cépage résistant au mildiou a eu besoin de protection contre l'oïdium. La surveillance ne disparaît pas, elle change de cible."
+  },
+  {
+    "date": "2026-11-12",
+    "semaine": "2026-11-16",
+    "categorie": "Technique",
+    "titre": "États-Unis : un distributeur de drones de pulvérisation se lance dans la fabrication",
+    "source": "DroneLife",
+    "url": "https://dronelife.com/2026/11/12/agri-spray-plans-shift-to-u-s-drone-manufacturing-as-federal-restrictions-reshape-the-market/",
+    "pays": "États-Unis",
+    "mots_cles": [
+      "épandage par drone",
+      "réglementation",
+      "FCC"
+    ],
+    "resume": "Agri Spray, entreprise du Missouri qui distribuait des drones de pulvérisation fabriqués en Chine, annonce un plan sur cinq ans pour produire des appareils à composants américains, face au projet de la FCC de restreindre les drones étrangers. Son dirigeant reconnaît que les États-Unis n'ont pas encore la capacité de fournir moteurs et batteries à grande échelle.",
+    "lecture": "Suite du dossier FCC, vu du côté industriel. Cinq ans pour reconstruire une filière : la dépendance à un fabricant dominant ne se règle pas par décret, et la question vaut aussi pour les drones de détection."
+  },
+  {
     "date": "2026-11-03",
     "semaine": "2026-11-09",
     "categorie": "Réglementaire",
