@@ -67,6 +67,9 @@ DATES_EN = [("janv.", "Jan"), ("févr.", "Feb"), ("mars", "Mar"), ("avr.", "Apr"
             ("juil.", "Jul"), ("août", "Aug"), ("sept.", "Sep"), ("oct.", "Oct"), ("nov.", "Nov"), ("déc.", "Dec"),
             ("n° 132, automne 2026", "No. 132, autumn 2026")]
 
+# Anciennes adresses (site Google Sites) -> nouvelles pages
+REDIRECTS = {"home": "", "a-propos": "equipe.html"}
+
 ICON_LI = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
 ICON_IG = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>'
 
@@ -326,6 +329,19 @@ def main():
             "{{PRESS3}}", "\n".join(press_card_en(*x) for x in PRESS if x[5]))
         (ROOT / "en" / fname).write_text(page(fname, title, desc, key, body, "en"), encoding="utf-8")
         urls.append(SITE_URL + "/en/" + ("" if fname == "index.html" else fname))
+    # Anciennes adresses du site Google Sites : redirections vers les nouvelles pages
+    for old, new in REDIRECTS.items():
+        d = ROOT / old
+        d.mkdir(exist_ok=True)
+        target = SITE_URL + "/" + new
+        (d / "index.html").write_text(
+            '<!doctype html>\n<html lang="fr"><head><meta charset="utf-8">'
+            f'<link rel="canonical" href="{target}">'
+            '<meta name="robots" content="noindex">'
+            f'<meta http-equiv="refresh" content="0; url={target}">'
+            f'<script>location.replace("{target}")</script>'
+            '<title>Agritech Provence</title></head>'
+            f'<body><p><a href="{target}">Agritech Provence</a></p></body></html>\n', encoding="utf-8")
     # Ancienne adresse de la revue de veille : redirige vers la section de la page Actualités
     (ROOT / "veille.html").write_text(
         '<!doctype html>\n<html lang="fr"><head><meta charset="utf-8">'
