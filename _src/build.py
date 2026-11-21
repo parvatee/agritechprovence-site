@@ -37,46 +37,98 @@ MENU = [("solution", "solution.html", "Notre solution"), ("resultats", "resultat
         ("equipe", "equipe.html", "À propos"), ("prix", "prix.html", "Prix et soutiens"),
         ("actualites", "actualites.html", "Actualités"), ("presse", "presse.html", "Presse")]
 
+# Version anglaise : corps de page dans _src/pages/en/, pages generees dans en/
+EN_SRC = SRC / "en"
+EN_PAGES = [
+    ("index.html", "Agritech Provence | Drones and AI for organic vineyards in Provence",
+     "Agritech Provence flies a multispectral drone over organic vineyards in Provence and uses artificial intelligence to tell winegrowers where to look.", "accueil"),
+    ("solution.html", "Our solution | Agritech Provence",
+     "Downy mildew, powdery mildew, flavescence dorée, missing vines: how we detect disease hotspots with a multispectral drone, from the map to the field.", "solution"),
+    ("resultats.html", "2026 results | Agritech Provence",
+     "What the drone saw in the vineyards: first results of the 2026 season, presented by grape variety.", "resultats"),
+    ("equipe.html", "About | Agritech Provence",
+     "A young company from Apt, in the Luberon, founded by a drone pilot and backed by committed winegrowers.", "equipe"),
+    ("prix.html", "Awards and support | Agritech Provence",
+     "101 Femmes Entrepreneures, Be a Boss Women Tour, Bpifrance, Initiative Terres de Vaucluse, Force Femmes.", "prix"),
+    ("presse.html", "Press | Agritech Provence",
+     "Press coverage, press releases and press kit of Agritech Provence.", "presse"),
+    ("contact.html", "Contact | Agritech Provence",
+     "Winegrower, journalist, institution or partner: let's talk about your vineyards.", "contact"),
+]
+EN_FILES = {f for f, *_ in EN_PAGES}
+MENU_EN = [("solution", "solution.html", "Our solution"), ("resultats", "resultats.html", "2026 results"),
+           ("equipe", "equipe.html", "About"), ("prix", "prix.html", "Awards"),
+           ("presse", "presse.html", "Press")]
+PRESS_LABELS_EN = {"Lire l'article": "Read (in French)", "Lire le post": "Read the post (in French)",
+                   "Voir le reel": "Watch the reel", "Voir le magazine": "See the magazine",
+                   "Lire et regarder": "Read and watch (in French)", "Regarder le reportage": "Watch the report (in French)",
+                   "Écouter": "Listen (in French)"}
+DATES_EN = [("janv.", "Jan"), ("févr.", "Feb"), ("mars", "Mar"), ("avr.", "Apr"), ("mai", "May"), ("juin", "Jun"),
+            ("juil.", "Jul"), ("août", "Aug"), ("sept.", "Sep"), ("oct.", "Oct"), ("nov.", "Nov"), ("déc.", "Dec"),
+            ("n° 132, automne 2026", "No. 132, autumn 2026")]
+
 ICON_LI = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
 ICON_IG = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#CFE07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>'
 
 
-def page(fname, title, desc, key, body):
+def page(fname, title, desc, key, body, lang="fr"):
+    en = lang == "en"
+    P = "../" if en else ""
     cur = ' aria-current="page"'
     items = "\n".join(
         f'<li><a href="{href}"{cur if k == key else ""}>{label}</a></li>'
-        for k, href, label in MENU)
+        for k, href, label in (MENU_EN if en else MENU))
+    if en:
+        items += f'\n<li><a href="../{fname}" hreflang="fr" lang="fr" aria-label="Version française">FR</a></li>'
+        body = body.replace('src="assets/', 'src="../assets/')
+    else:
+        target = fname if fname in EN_FILES else "index.html"
+        items += f'\n<li><a href="en/{target}" hreflang="en" lang="en" aria-label="English version">EN</a></li>'
+    alt = ""
+    if fname in EN_FILES:
+        path = "" if fname == "index.html" else fname
+        alt = (f'<link rel="alternate" hreflang="fr" href="{SITE_URL}/{path}">\n'
+               f'<link rel="alternate" hreflang="en" href="{SITE_URL}/en/{path}">\n')
     contact_cur = ' aria-current="page"' if key == "contact" else ""
-    extra_js = '\n<script src="assets/js/form.js"></script>' if key == "contact" else ""
+    extra_js = f'\n<script src="{P}assets/js/form.js"></script>' if key == "contact" else ""
     if fname == "actualites.html":
         extra_js = '\n<script src="assets/js/veille.js"></script>'
-    canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
+    canonical = SITE_URL + "/" + ("en/" if en else "") + ("" if fname == "index.html" else fname)
+    T = {"skip": "Skip to content" if en else "Aller au contenu",
+         "tag": "Drone · multispectral · AI" if en else "Drone · multispectral · IA",
+         "foot": ("Agritech Provence · Drones and artificial intelligence for organic vineyards in Provence · Apt, France" if en
+                  else "Agritech Provence · Drone et intelligence artificielle pour les vignes bio de Provence · Apt, Vaucluse"),
+         "sec": "Secondary links" if en else "Liens secondaires",
+         "press": "Press" if en else "Presse",
+         "legal": '<a href="../mentions-legales.html" hreflang="fr">Legal notice (FR)</a>' if en else '<a href="mentions-legales.html">Mentions légales</a>',
+         "logo": "Agritech Provence logo" if en else "Logo Agritech Provence"}
     body = body.replace("{{LINKEDIN}}", LINKEDIN).replace("{{INSTAGRAM}}", INSTAGRAM) \
                .replace("{{ICON_LI}}", ICON_LI).replace("{{ICON_IG}}", ICON_IG)
     return f'''<!doctype html>
-<html lang="fr">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{canonical}">
+{alt}
 <meta property="og:type" content="website">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:image" content="{SITE_URL}/assets/img/mildiou-foyers.jpg">
-<meta property="og:locale" content="fr_FR">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<meta property="og:locale" content="{"en_GB" if en else "fr_FR"}">
+<link rel="icon" type="image/png" href="{P}assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{P}assets/css/style.css">
 </head>
 <body>
-<a class="skip" href="#contenu">Aller au contenu</a>
+<a class="skip" href="#contenu">{T["skip"]}</a>
 <header class="site-header">
 <div class="wrap nav">
-<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="Logo Agritech Provence" width="68" height="68"><span><b>AGRITECH PROVENCE</b><small>Drone · multispectral · IA</small></span></a>
+<a class="brand" href="index.html"><img src="{P}assets/img/logo.png" alt="{T["logo"]}" width="68" height="68"><span><b>AGRITECH PROVENCE</b><small>{T["tag"]}</small></span></a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 <ul class="menu" id="menu">
 {items}
@@ -89,11 +141,11 @@ def page(fname, title, desc, key, body):
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<div class="brand-mini"><img src="assets/img/logo.png" alt="" width="40" height="40"><span>Agritech Provence · Drone et intelligence artificielle pour les vignes bio de Provence · Apt, Vaucluse</span></div>
-<nav aria-label="Liens secondaires"><a href="{LINKEDIN}">LinkedIn</a><a href="{INSTAGRAM}">Instagram</a><a href="presse.html">Presse</a><a href="mentions-legales.html">Mentions légales</a></nav>
+<div class="brand-mini"><img src="{P}assets/img/logo.png" alt="" width="40" height="40"><span>{T["foot"]}</span></div>
+<nav aria-label="{T["sec"]}"><a href="{LINKEDIN}">LinkedIn</a><a href="{INSTAGRAM}">Instagram</a><a href="presse.html">{T["press"]}</a>{T["legal"]}</nav>
 </div>
 </footer>
-<script src="assets/js/nav.js"></script>{extra_js}
+<script src="{P}assets/js/nav.js"></script>{extra_js}
 </body>
 </html>
 '''
@@ -141,6 +193,12 @@ def press_card(m, d, t, url, label, home=False):
     if url:
         return f'<a class="card" href="{url}">{inner}<span class="lien">{label}</span></a>'
     return f'<div class="card">{inner}</div>'
+
+
+def press_card_en(m, d, t, url, label, home=False):
+    for a, b in DATES_EN:
+        d = d.replace(a, b)
+    return press_card(m, d, t, url, PRESS_LABELS_EN.get(label, label), home)
 
 
 POSTS_DIR = ROOT / "_src" / "posts"
@@ -261,6 +319,13 @@ def main():
         (ROOT / fname).write_text(page(fname, title, desc, key, body), encoding="utf-8")
         if fname != "404.html":
             urls.append(SITE_URL + "/" + ("" if fname == "index.html" else fname))
+    (ROOT / "en").mkdir(exist_ok=True)
+    for fname, title, desc, key in EN_PAGES:
+        body = (EN_SRC / fname).read_text(encoding="utf-8")
+        body = body.replace("{{PRESS}}", "\n".join(press_card_en(*x) for x in PRESS)).replace(
+            "{{PRESS3}}", "\n".join(press_card_en(*x) for x in PRESS if x[5]))
+        (ROOT / "en" / fname).write_text(page(fname, title, desc, key, body, "en"), encoding="utf-8")
+        urls.append(SITE_URL + "/en/" + ("" if fname == "index.html" else fname))
     # Ancienne adresse de la revue de veille : redirige vers la section de la page Actualités
     (ROOT / "veille.html").write_text(
         '<!doctype html>\n<html lang="fr"><head><meta charset="utf-8">'

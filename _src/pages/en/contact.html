@@ -1,0 +1,41 @@
+<section class="section--nuit">
+<div class="wrap page-hero stack">
+<p class="eyebrow">Contact</p>
+<h1>Let's talk about your vineyards.</h1>
+<p class="lead muted">Winegrower, journalist, institution, researcher or partner: write to us, we reply within 48 hours, in English or French.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap grid" style="--min:340px;gap:56px">
+<div class="stack">
+<h2 style="font-size:28px">Agritech Provence</h2>
+<p class="muted">210 chemin de Préville<br>84400 Apt, Vaucluse, France</p>
+<p><a href="mailto:Julie.Demarigny@agritechprovence.com">Julie.Demarigny@agritechprovence.com</a></p>
+<div class="socials">
+<a href="{{LINKEDIN}}" aria-label="LinkedIn">{{ICON_LI}}</a>
+<a href="{{INSTAGRAM}}" aria-label="Instagram">{{ICON_IG}}</a>
+</div>
+<div class="card card--nuit" style="margin-top:16px">
+<p class="eyebrow">Organic winegrowers</p>
+<p class="muted">We are looking for plots for the 2027 season, especially where flavescence dorée is just starting. Tell us your village and the size of your vineyard.</p>
+</div>
+</div>
+<form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" data-sending="Sending…" data-ok="Thank you, your message has arrived. We will get back to you within 48 hours." data-err="Your message could not be sent. Please write to us at">
+<input type="hidden" name="access_key" value="11bbe373-f558-4307-b0f3-de25de5aba23">
+<input type="hidden" name="subject" value="New message from the Agritech Provence website (English)">
+<input type="hidden" name="from_name" value="Agritech Provence website">
+<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<h2 style="font-size:28px;grid-column:1/-1">Write to us</h2>
+<label>Full name *<input type="text" name="nom" required autocomplete="name"></label>
+<label>Email *<input type="email" name="email" required autocomplete="email"></label>
+<label>Phone<input type="tel" name="telephone" autocomplete="tel"></label>
+<label>You are *<select name="profil" required><option value="">Choose</option><option>Winegrower or estate</option><option>Cooperative winery</option><option>Journalist</option><option>Institution or public body</option><option>Researcher</option><option>Partner or investor</option><option>Other</option></select></label>
+<label>Organisation and location<input type="text" name="domaine_commune"></label>
+<label>Vineyard area (ha)<input type="text" name="surface_ha" inputmode="decimal"></label>
+<label class="full">Your message *<textarea name="message" rows="5" required></textarea></label>
+<label class="full check"><input type="checkbox" name="consentement" value="yes" required><span>I agree that Agritech Provence may use this information to reply to me. <a href="../mentions-legales.html" hreflang="fr">Personal data (in French)</a></span></label>
+<div class="full form-actions"><button class="btn btn--nuit" type="submit">Send</button><p class="form-status" role="status" aria-live="polite"></p></div>
+</form>
+</div>
+</section>

@@ -7,7 +7,7 @@
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     if (f.botcheck && f.botcheck.checked) return;
-    btn.disabled = true; btn.textContent = 'Envoi…';
+    var lbl = btn.textContent; btn.disabled = true; btn.textContent = f.dataset.sending || 'Envoi…';
     status.className = 'form-status'; status.textContent = '';
     var data = Object.fromEntries(new FormData(f));
     if (data.email) data.replyto = data.email;
@@ -17,13 +17,13 @@
         if (j.success) {
           f.reset();
           status.className = 'form-status ok';
-          status.textContent = 'Merci, votre message est bien arrivé. Nous revenons vers vous sous 48 heures.';
+          status.textContent = f.dataset.ok || 'Merci, votre message est bien arrivé. Nous revenons vers vous sous 48 heures.';
         } else { throw new Error(j.message); }
       })
       .catch(function () {
         status.className = 'form-status err';
-        status.innerHTML = 'L’envoi n’a pas abouti. Écrivez-nous à <a href="mailto:Julie.Demarigny@agritechprovence.com">Julie.Demarigny@agritechprovence.com</a>.';
+        status.innerHTML = (f.dataset.err || 'L’envoi n’a pas abouti. Écrivez-nous à') + ' <a href="mailto:Julie.Demarigny@agritechprovence.com">Julie.Demarigny@agritechprovence.com</a>.';
       })
-      .finally(function () { btn.disabled = false; btn.textContent = 'Envoyer'; });
+      .finally(function () { btn.disabled = false; btn.textContent = lbl; });
   });
 })();
