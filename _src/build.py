@@ -62,7 +62,7 @@ MENU_EN = [("solution", "solution.html", "Our solution"), ("resultats", "resulta
 PRESS_LABELS_EN = {"Lire l'article": "Read (in French)", "Lire le post": "Read the post (in French)",
                    "Voir le reel": "Watch the reel", "Voir le magazine": "See the magazine",
                    "Lire et regarder": "Read and watch (in French)", "Regarder le reportage": "Watch the report (in French)",
-                   "Écouter": "Listen (in French)"}
+                   "Écouter": "Listen (in French)", "Regarder": "Watch (in French)"}
 DATES_EN = [("janv.", "Jan"), ("févr.", "Feb"), ("mars", "Mar"), ("avr.", "Apr"), ("mai", "May"), ("juin", "Jun"),
             ("juil.", "Jul"), ("août", "Aug"), ("sept.", "Sep"), ("oct.", "Oct"), ("nov.", "Nov"), ("déc.", "Dec"),
             ("n° 132, automne 2026", "No. 132, autumn 2026")]
@@ -157,6 +157,8 @@ def page(fname, title, desc, key, body, lang="fr"):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
+    ("YouTube", "nov. 2026", "Reportage vidéo sur Agritech Provence",
+     "https://www.youtube.com/watch?v=hDHnaTlQX40", "Regarder", False),
     ("Vaucluse Agricole", "12 nov. 2026", "Dans les vignes, des drones pour mieux détecter les maladies",
      "https://www.vaucluse-agricole.com/article/dans-les-vignes-des-drones-pour-mieux-detecter-les-maladies_1482016", "Lire l'article", False),
     ("Force Femmes · LinkedIn", "3 nov. 2026", "Interview de Julie Demarigny : « ne jamais rien lâcher »",
