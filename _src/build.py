@@ -157,7 +157,7 @@ def page(fname, title, desc, key, body, lang="fr"):
 # Revue de presse, du plus recent au plus ancien. url = None tant que le lien n'est pas connu.
 PRESS = [
     # (media, date, titre, url, libelle du lien, affiche en page d'accueil)
-    ("YouTube", "nov. 2026", "Reportage vidéo sur Agritech Provence",
+    ("Terre&amp;Toi média · YouTube", "14 nov. 2026", "Apt. Julie Demarigny : lauréate grâce à sa technique drone + IA, pour l'agriculture",
      "https://www.youtube.com/watch?v=hDHnaTlQX40", "Regarder", False),
     ("Vaucluse Agricole", "12 nov. 2026", "Dans les vignes, des drones pour mieux détecter les maladies",
      "https://www.vaucluse-agricole.com/article/dans-les-vignes-des-drones-pour-mieux-detecter-les-maladies_1482016", "Lire l'article", False),
