@@ -1,5 +1,70 @@
 [
   {
+    "date": "2026-11-20",
+    "semaine": "2026-11-23",
+    "categorie": "Technique",
+    "titre": "John Deere rachète Orchard Robotics, spécialiste de l'imagerie des vergers et des vignes",
+    "source": "AgFunderNews",
+    "url": "https://agfundernews.com/john-deere-orchard-robotics-deal-signals-growing-value-of-actionable-farm-data-says-ag-robotics-og",
+    "pays": "États-Unis",
+    "mots_cles": [
+      "IA",
+      "vision par ordinateur",
+      "rendement",
+      "John Deere"
+    ],
+    "resume": "Fondée en 2022, Orchard Robotics monte des caméras sur les tracteurs pour compter les fruits, mesurer la canopée et estimer les rendements, avec un calcul embarqué et une plateforme logicielle. Partie de la pomme, elle couvre désormais la vigne de cuve et de table, les cerises, les agrumes ou les amandes. Le montant n'est pas communiqué ; la société devient une filiale de Deere, après les rachats de Sentera et GUSS en 2025.",
+    "lecture": "Les grands constructeurs achètent de la donnée image de cultures pérennes, parce qu'elle s'enrichit à chaque passage. C'est le cœur de notre méthode : chaque vol enrichit une base d'images qui aide l'IA à repérer plus vite et mieux. Caméra au sol et drone se complètent : l'un voit le rang de près, l'autre la parcelle entière."
+  },
+  {
+    "date": "2026-11-18",
+    "semaine": "2026-11-23",
+    "categorie": "Agricole",
+    "titre": "Récolte mondiale 2026 : 220 à 230 millions d'hectolitres, quatrième année basse d'affilée",
+    "source": "WineNews, d'après l'OIV",
+    "url": "https://winenews.it/en/harvest-2026-world-wine-production-between-220-and-230-million-hectoliters-first-oiv-estimates_608168/",
+    "pays": "Monde",
+    "mots_cles": [
+      "récolte",
+      "économie",
+      "OIV"
+    ],
+    "resume": "Selon les premières estimations de l'OIV, la production mondiale est stable par rapport à 2025 mais reste sous la moyenne pour la quatrième année consécutive. La France produirait 36,5 millions d'hectolitres, 2 % de plus qu'en 2025 mais 10 % sous sa moyenne sur cinq ans, après chaleur, sécheresse et gel localisé. L'Italie recule de 8 % à 41 millions d'hectolitres, l'Espagne progresse de 13 % à 32,6 millions.",
+    "lecture": "Trois petites récoltes de suite en France, c'est moins de marge pour encaisser une perte sanitaire. Quand le volume est rare, chaque foyer repéré tôt est du raisin sauvé. Le climat qui réduit les rendements modifie aussi la pression des maladies : il faut regarder la vigne plus souvent, pas moins."
+  },
+  {
+    "date": "2026-11-17",
+    "semaine": "2026-11-23",
+    "categorie": "Réglementaire",
+    "titre": "L'Union européenne prépare l'assouplissement de l'épandage par drone",
+    "source": "UkrAgroConsult, d'après Agroxxi",
+    "url": "https://ukragroconsult.com/en/news/eu-prepares-to-ease-rules-on-agricultural-drone-spraying/",
+    "pays": "Union européenne",
+    "mots_cles": [
+      "épandage par drone",
+      "réglementation",
+      "Italie"
+    ],
+    "resume": "La directive 2009/128/CE interdit en principe l'épandage aérien de produits phytosanitaires, sauf dérogation. La Commission propose de permettre aux États membres de simplifier l'autorisation de certains drones agricoles, sous conditions de sécurité environnementale et opérationnelle ; le sujet a animé le salon EIMA de Bologne. En Italie, le Parlement a précisé début novembre que les trois ans d'expérimentation ne démarreront qu'à l'adoption du décret gouvernemental.",
+    "lecture": "Une proposition n'est pas une autorisation. C'est dans le cadre français actuel que s'inscrit notre demande d'expérimentation 2027 dans le Luberon : traiter un foyer repéré, et lui seul. Arriver avec des cartes et des données, c'est être prêt quand le cadre s'ouvrira."
+  },
+  {
+    "date": "2026-11-10",
+    "semaine": "2026-11-23",
+    "categorie": "Agronomique",
+    "titre": "Cépages résistants : huit ans d'observatoire OSCAR, 79 % d'IFT fongicide en moins",
+    "source": "Aquitaine Online, d'après INRAE",
+    "url": "https://www.aquitaineonline.com/actu-news/france/13690-vignes-resistantes-mildiou-oscar-inrae.html",
+    "pays": "France",
+    "mots_cles": [
+      "cépages résistants",
+      "mildiou",
+      "INRAE"
+    ],
+    "resume": "Depuis 2018, l'observatoire OSCAR (INRAE, IFV et plus de 30 partenaires) suit 199 parcelles commerciales de 31 variétés résistantes, sur 127 ha. L'IFT fongicide moyen y est de 2,03, contre 10,1 pour les variétés sensibles en référence nationale, soit 79 % de moins ; ce n'est pas une comparaison parcelle à parcelle. Certaines résistances au mildiou montrent des signes d'affaiblissement et le black-rot progresse.",
+    "lecture": "Un cépage résistant demande moins de traitements, pas moins de surveillance. Une résistance qui cède commence par quelques foyers ; les repérer tôt, c'est la préserver. Et la flavescence dorée, elle, ne connaît pas de cépage résistant."
+  },
+  {
     "date": "2026-11-11",
     "semaine": "2026-11-16",
     "categorie": "Agricole",
